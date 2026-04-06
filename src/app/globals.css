@@ -1,0 +1,323 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════
+   NEON FORGE — Gym Growth OS Design System
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Color Tokens ─────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-primary: #0A0E1A;
+  --bg-secondary: #0F1428;
+  --bg-surface: rgba(255, 255, 255, 0.04);
+  --bg-surface-hover: rgba(255, 255, 255, 0.08);
+  --bg-surface-active: rgba(255, 255, 255, 0.12);
+
+  /* Accents */
+  --accent-electric: #6C5CE7;
+  --accent-electric-glow: rgba(108, 92, 231, 0.4);
+  --accent-cyan: #00D2FF;
+  --accent-cyan-glow: rgba(0, 210, 255, 0.3);
+  --accent-lime: #A8E063;
+  --accent-lime-glow: rgba(168, 224, 99, 0.3);
+  --accent-amber: #FFBE0B;
+  --accent-amber-glow: rgba(255, 190, 11, 0.3);
+  --accent-red: #FF006E;
+  --accent-red-glow: rgba(255, 0, 110, 0.3);
+  --accent-orange: #FB8B24;
+  --accent-orange-glow: rgba(251, 139, 36, 0.3);
+  --accent-emerald: #25D366;
+  --accent-emerald-glow: rgba(37, 211, 102, 0.3);
+  --accent-gold: #F4C542;
+  --accent-gold-glow: rgba(244, 197, 66, 0.3);
+
+  /* Text */
+  --text-primary: #F0F0F5;
+  --text-secondary: rgba(240, 240, 245, 0.6);
+  --text-muted: rgba(240, 240, 245, 0.35);
+
+  /* Glass */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(255, 255, 255, 0.15);
+  --glass-blur: 20px;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --glass-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.45);
+
+  /* Radii */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Fonts */
+  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-outfit), var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+/* ── Tailwind Theme Inline ────────────────────────────────── */
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-electric);
+  color: white;
+}
+
+/* ── Glass Card ────────────────────────────────────────────── */
+.glass {
+  background: var(--bg-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow);
+  transition: all var(--transition-base);
+}
+
+.glass:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.glass-static {
+  background: var(--bg-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow);
+}
+
+/* ── Glow Borders ──────────────────────────────────────────── */
+.glow-cyan    { box-shadow: var(--glass-shadow), inset 0 1px 0 var(--accent-cyan-glow),  0 0 20px var(--accent-cyan-glow); }
+.glow-purple  { box-shadow: var(--glass-shadow), inset 0 1px 0 var(--accent-electric-glow), 0 0 20px var(--accent-electric-glow); }
+.glow-lime    { box-shadow: var(--glass-shadow), inset 0 1px 0 var(--accent-lime-glow),  0 0 20px var(--accent-lime-glow); }
+.glow-amber   { box-shadow: var(--glass-shadow), inset 0 1px 0 var(--accent-amber-glow), 0 0 20px var(--accent-amber-glow); }
+.glow-red     { box-shadow: var(--glass-shadow), inset 0 1px 0 var(--accent-red-glow),   0 0 20px var(--accent-red-glow); }
+.glow-orange  { box-shadow: var(--glass-shadow), inset 0 1px 0 var(--accent-orange-glow), 0 0 20px var(--accent-orange-glow); }
+.glow-emerald { box-shadow: var(--glass-shadow), inset 0 1px 0 var(--accent-emerald-glow), 0 0 20px var(--accent-emerald-glow); }
+.glow-gold    { box-shadow: var(--glass-shadow), inset 0 1px 0 var(--accent-gold-glow),  0 0 20px var(--accent-gold-glow); }
+
+/* ── Gradient Text ─────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-electric));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Accent Bars ───────────────────────────────────────────── */
+.accent-bar {
+  position: relative;
+}
+.accent-bar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--accent-electric);
+}
+.accent-bar-cyan::before    { background: var(--accent-cyan); }
+.accent-bar-purple::before  { background: var(--accent-electric); }
+.accent-bar-lime::before    { background: var(--accent-lime); }
+.accent-bar-amber::before   { background: var(--accent-amber); }
+.accent-bar-red::before     { background: var(--accent-red); }
+.accent-bar-orange::before  { background: var(--accent-orange); }
+.accent-bar-emerald::before { background: var(--accent-emerald); }
+
+/* ── Input Styling ─────────────────────────────────────────── */
+.input-glass {
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  padding: 0.75rem 1rem;
+  transition: all var(--transition-fast);
+  outline: none;
+  width: 100%;
+}
+
+.input-glass::placeholder {
+  color: var(--text-muted);
+}
+
+.input-glass:focus {
+  border-color: var(--accent-electric);
+  box-shadow: 0 0 0 3px var(--accent-electric-glow);
+}
+
+/* ── Button ────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  padding: 0 1.5rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--accent-electric), #8B5CF6);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 15px var(--accent-electric-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--accent-electric-glow);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Scroll Bar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+/* ── Ambient Background ────────────────────────────────────── */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+  animation: float-orb 20s ease-in-out infinite;
+}
+
+.ambient-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--accent-electric);
+  top: -10%;
+  right: -5%;
+}
+
+.ambient-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-cyan);
+  bottom: -10%;
+  left: -5%;
+  animation-delay: -10s;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-20px, 30px) scale(0.95); }
+  75% { transform: translate(15px, 15px) scale(1.02); }
+}
+
+/* ── Animations ────────────────────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s var(--transition-smooth) both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease both;
+}
+
+/* stagger children */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 80ms; }
+.stagger > *:nth-child(3) { animation-delay: 160ms; }
+.stagger > *:nth-child(4) { animation-delay: 240ms; }
+.stagger > *:nth-child(5) { animation-delay: 320ms; }
+.stagger > *:nth-child(6) { animation-delay: 400ms; }
+
+/* ── Reduced Motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ambient-orb { display: none; }
+}
+
+/* ── Font display classes ──────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
